@@ -2,7 +2,7 @@ import { ArticleContainer } from './ArticleContainer';
 import { NavLink } from 'react-router-dom';
 
 
-export default const ArticlePreview = ({id, title, media, description, link, author, datePublished}) => {
+export const ArticlePreview = ({num, title, media, description, link, author, datePublished}) => {
 
     const imgAlt= `image of ${title}`
 
@@ -19,7 +19,7 @@ export default const ArticlePreview = ({id, title, media, description, link, aut
                 <p>{datePublished}</p>
                 <p>{author}</p>
             </div>
-            <NavLink to={`/article/${id}`}>
+            <NavLink to={`/article/${num}`}>
                 <button className='view-details'>View Details</button>
             </NavLink>
         </article>
