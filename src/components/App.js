@@ -13,20 +13,20 @@ const App = () => {
   const getArticles = async (type) => {
     console.log("TYPE??", type)
     setError('')
-    setArticles([]);
     setType(type)
     console.log("NNEWSTYPE???", type)
     try {
-      let articles = await fetchArticles(newsType)
+      let articles = await fetchArticles(newsType || type)
       const articlesWithIds = articles.results.map((article, i) => {
         let id = i
         return {...article, num: `${id}`}
       })
       console.log("FETCHED ARTICLES", articlesWithIds)
       setArticles(articlesWithIds)
-    } catch (error) {
-      setError(error.message)
       setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false)
+      setError(error.message)
     }
   }
 
@@ -34,8 +34,14 @@ const App = () => {
     getArticles(type);
   }, [])
 
+  if(isLoading) {
+    return (
+      <h1 className='loading'>your news is loading...</h1>
+    )
+  }
 
-  return (
+  if (articles.length) {
+    return (
       <main>
       <Switch>
         <Route exact path='/' render={() => 
@@ -64,7 +70,7 @@ const App = () => {
         }}/>
       </Switch>
       </main>
-    );
+    )}
 }
 
 export default App;
