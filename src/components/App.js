@@ -2,6 +2,7 @@ import { fetchArticles } from '../utils/apiCalls';
 import { useEffect, useState } from 'react';
 import { Dashboard } from './Dashboard';
 import { Route, Switch } from 'react-router-dom';
+import { ArticleDetails } from './ArticleDetails';
 
 const App = () => {
   const [ articles, setArticles ] = useState([])
@@ -27,7 +28,7 @@ const App = () => {
   return (
       <main>
       <Switch>
-        <Route exact path='/dashboard' render={() => 
+        <Route exact path='/' render={() => 
         <Dashboard 
           type={type}
           error={error}
@@ -37,7 +38,14 @@ const App = () => {
         <Route exact path='/article/:id' render={({ match }) => {
           const articleMatch = articles.find(article => article.id == match.param.id)
           return <ArticleDetails 
-                  article={articleMatch}
+                  id={i}
+                  key={i}
+                  title={articleMatch.title}
+                  media={articleMatch.multimedia}
+                  description={articleMatch.description}
+                  link={articleMatch.url}
+                  author={articleMatch.byline}
+                  datePublished={articleMatch.published_date}
                   />
         }}/>
       </Switch>
