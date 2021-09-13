@@ -1,26 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
-import { Route } from 'react-router-dom';
+import { fetchArticles } from '../utils/apiCalls';
+import { useEffect, useState } from 'react';
+import { Dashboard } from './Dashboard';
+import { Route, Switch } from 'react-router-dom';
 
-function App() {
+const App = () => {
+  const [ articles, setArticles ] = useState([])
+  const [ error, setError ] = useState('')
+  const [ type, setType ] = useState('home')
+
+  const getArticles = async (type) => {
+    setError('')
+    setArticles([]);
+    try {
+      let articles = await fetchArticles(type)
+      setArticles(articles.results)
+    } catch (error) {
+      setError(error.message);
+    }
+  }
+
+  useEffect((type) => {
+    getArticles(type);
+  }, [])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <main>
+      <Switch>
+        <Route exact path='/dashboard' render={() => 
+        <Dashboard 
+          type={type}
+          error={error}
+          articles={articles}
+        />
+        }/>
+        <Route exact path='/article/:id' render={({ match }) => {
+          const articleMatch = articles.find(article => article.id == match.param.id)
+          return <ArticleDetails 
+                  article={articleMatch}
+                  />
+        }}/>
+      </Switch>
+      </main>
+    );
 }
 
 export default App;
