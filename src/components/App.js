@@ -11,9 +11,11 @@ const App = () => {
   const [ isLoading, setIsLoading ] = useState(true);
 
   const getArticles = async (type) => {
+    console.log("TYPE??", type)
     setError('')
     setArticles([]);
     setType(type)
+    console.log("NNEWSTYPE???", type)
     try {
       let articles = await fetchArticles(newsType)
       const articlesWithIds = articles.results.map((article, i) => {
