@@ -7,17 +7,24 @@ import { ArticleDetails } from './ArticleDetails';
 const App = () => {
   const [ articles, setArticles ] = useState([])
   const [ error, setError ] = useState('')
-  const [ type, setType ] = useState('home')
+  const [ newsType, setType ] = useState('home')
+  const [ isLoading, setIsLoading ] = useState(true);
 
   const getArticles = async (type) => {
     setError('')
     setArticles([]);
+    setType(type)
     try {
-      let articles = await fetchArticles(type)
-      const articlesWithIds = articles.results.map((article, i) => article.id = i)
+      let articles = await fetchArticles(newsType)
+      const articlesWithIds = articles.results.map((article, i) => {
+        let id = i
+        return {...article, num: `${id}`}
+      })
+      console.log("FETCHED ARTICLES", articlesWithIds)
       setArticles(articlesWithIds)
     } catch (error) {
-      setError(error.message);
+      setError(error.message)
+      setIsLoading(false);
     }
   }
 
@@ -31,16 +38,20 @@ const App = () => {
       <Switch>
         <Route exact path='/' render={() => 
         <Dashboard 
-          type={type}
+          isLoading={isLoading}
+          type={newsType}
           error={error}
           articles={articles}
+          getArticles={getArticles}
         />
         }/>
         <Route exact path='/article/:id' render={({ match }) => {
-          const articleMatch = articles.find(article => article.id == match.param.id)
+          console.log('match', match)
+          let articleMatch = articles.find(article => article.num === match.params.id)
+          console.log("MATCH?", articleMatch)
           return <ArticleDetails 
-                  id={i}
-                  key={i}
+                  id={articleMatch.num}
+                  key={articleMatch.num}
                   title={articleMatch.title}
                   media={articleMatch.multimedia}
                   description={articleMatch.description}
