@@ -14,7 +14,8 @@ const App = () => {
     setArticles([]);
     try {
       let articles = await fetchArticles(type)
-      setArticles(articles.results)
+      const articlesWithIds = articles.results.map((article, i) => article.id = i)
+      setArticles(articlesWithIds)
     } catch (error) {
       setError(error.message);
     }
