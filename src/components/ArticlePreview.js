@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 export default const ArticlePreview = ({id, title, media, description, link, author, datePublished}) => {
 
     const imgAlt= `image of ${title}`
-    
+
     return (
         <article className='article-preview'>
             <div className='article-img'>
@@ -19,6 +19,9 @@ export default const ArticlePreview = ({id, title, media, description, link, aut
                 <p>{datePublished}</p>
                 <p>{author}</p>
             </div>
+            <NavLink to={`/article/${id}`}>
+                <button className='view-details'>View Details</button>
+            </NavLink>
         </article>
     );
 }
