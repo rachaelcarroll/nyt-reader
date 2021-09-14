@@ -14,7 +14,7 @@
   }
   
   body {  
-    font-family: "Helvetica", Sans-Serif; 
+    font-family: $font-family-primary; 
     line-height: 1;
   }
   
@@ -22,8 +22,9 @@
     text-decoration: none;
     &:focus, &:hover, &:visited, &:link, &:active {
       text-decoration: none;
-      // font-family: $font-family-secondary;
+      font-family: $font-family-secondary;
       font-size: 1.1rem;
+      cursor: pointer;
     }
   }
   
@@ -47,5 +48,7 @@
       font-size: 100%;
       font-family: inherit;
       vertical-align: baseline;
+      font-family: $font-family-primary;
+      letter-spacing: 1.1px;
   }
   
