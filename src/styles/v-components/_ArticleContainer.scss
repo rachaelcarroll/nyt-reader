@@ -1,4 +1,5 @@
 .all-articles {
+    @include flex(column, center);
     width: 70%;
     margin: 1rem;
     overflow-y: scroll;

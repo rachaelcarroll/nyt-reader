@@ -15,7 +15,7 @@ export const ArticleCard = ({section, id, title, media, description, author, dat
             <div className='article-description'>
                 <div className='title-tagline'>
                     <h2>{title}</h2>
-                    <p>{description}</p>
+                    <p className='preview'>{description}</p>
                 </div>
             <div className='date-author'>
                 <p>Published {formatDate(datePublished)}</p>

@@ -1,9 +1,13 @@
 .article-preview {
     @include flex(row, between);
-    margin: 1rem;
+    margin: 0rem 1rem 1rem;
     padding: .5rem;
     width: 80%;
     border-bottom: 1px solid $black;
+
+    h2 {
+        margin-bottom: .5rem;
+    }
 
     img {
         height: 7rem;
@@ -13,5 +17,14 @@
 
 .article-description {
     @include flex(column, start);
-    padding: .5rem;
+    padding: 0rem .5rem;
+}
+
+.date-author {
+    @include flex(row, evenly);
+    margin-top: .5rem;
+}
+
+.preview {
+    font-size: .9rem;
 }
