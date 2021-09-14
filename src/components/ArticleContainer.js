@@ -1,36 +1,29 @@
-import { ArticlePreview } from './ArticlePreview';
-import { NavLink } from 'react-router-dom';
+import { ArticleCard } from './ArticleCard';
 
-
-export const ArticleContainer = ({articles, isLoading}) => {
-    console.log('ARTICLES', articles)
+export const ArticleContainer = ({articles}) => {
     const allArticles = [...articles]
 
-    const article = allArticles.map((articleObj) => {
+    const articleCard = allArticles.map(article => {
+        console.log("ARTICLE?", article)
         return (
-            <ArticlePreview
-            num={articleObj.num}
-            key={articleObj.num}
-            title={articleObj.title}
-            media={articleObj.multimedia}
-            description={articleObj.abstract}
-            link={articleObj.url}
-            author={articleObj.byline}
-            datePublished={articleObj.published_date}
+            <ArticleCard
+            id={article.id}
+            key={article.id}
+            title={article.title}
+            media={article.multimedia}
+            description={article.abstract}
+            link={article.url}
+            author={article.byline}
+            datePublished={article.published_date}
+            section={article.section}
             />
         )
     })
 
-    if(isLoading) {
         return (
-          <h1 className='loading'>your news is loading...</h1>
-        )
-      } else {
-        return (
-        <section className='all-articles'>
-            <h1>the daily news</h1>
-            {article} 
-        </section>
+            <section className='all-articles'>
+                <h1>the daily news</h1>
+                {articleCard} 
+            </section>
     );
   }
-}
