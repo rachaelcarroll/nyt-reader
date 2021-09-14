@@ -1,23 +1,35 @@
-import { NavLink } from 'react-router-dom';
 import { Categories } from './Categories';
 import { ArticleContainer } from './ArticleContainer';
 import { Error } from './Error';
 
-export const Dashboard = ({type, articles, error, isLoading, getArticles}) => {
-console.log('ARTICLES DASH', articles)
-
+export const Dashboard = ({articles, error, categories, changeCategory}) => {
     return (
+        <>
+        <h1 className='the-daily-header'>the daily news</h1>
         <section className='dashboard'>
             {error && <Error message={error} />}
-            <Categories 
-            type={type}
-            getArticles={getArticles}
-            />
-            <ArticleContainer 
-            isLoading={isLoading}
-            articles={articles}
-            type={type}
-            />
+            {!error && !articles.length && (
+                
+                <>
+                <Categories 
+                    categories={categories}
+                    changeCategory={changeCategory}
+                />
+                <h1 className='loading'>loading your news...</h1>
+             </>
+            )}
+            {!error && !!articles.length && (
+             <>
+                <Categories 
+                    categories={categories}
+                    changeCategory={changeCategory}
+                />
+                <ArticleContainer 
+                    articles={articles}
+                />
+             </>
+            )}
         </section> 
+        </>
     );
 }

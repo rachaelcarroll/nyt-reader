@@ -17,5 +17,7 @@ body {
   }
 
   main {
-    @include flex(row, between)
+    @include flex(column, between)
   }
+
+
