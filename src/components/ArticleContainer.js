@@ -22,7 +22,6 @@ export const ArticleContainer = ({articles}) => {
 
         return (
             <section className='all-articles'>
-                <h1>the daily news</h1>
                 {articleCard} 
             </section>
     );
