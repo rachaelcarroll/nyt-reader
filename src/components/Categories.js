@@ -1,18 +1,20 @@
+import { NavLink } from 'react-router-dom';
 
-export const Categories = ({getArticles}) => {
+export const Categories = ({categories, changeCategory}) => {
 
-    const setCategory = (category) => {
-        console.log('CATEGORY CLICKED?', category)
-        getArticles(category.category)
+    const setCategory = (event) => {
+        changeCategory(event.target.id)
     }
 
-    const newsCategories = ['home', 'arts', 'science', 'us', 'world']
-    const eachCategory = newsCategories.map((category, i) => {
-        console.log("?????", category)
+    const eachCategory = categories.map(category => {
         return (
-            <div className='category-tab' key={i} onClick={() => setCategory({category})}>
-                {category}
-            </div>
+            <NavLink to={`/${category}`}
+                    className='category-tab' 
+                    key={category} 
+                    id={category}
+                    onClick={(event) => setCategory(event)}>
+                    {category}
+            </NavLink>
         )});
 
     return (
