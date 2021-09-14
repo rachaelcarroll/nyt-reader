@@ -4,10 +4,13 @@ import { Error } from './Error';
 
 export const Dashboard = ({articles, error, categories, changeCategory}) => {
     return (
+        <>
+        <h1 className='the-daily-header'>the daily news</h1>
         <section className='dashboard'>
             {error && <Error message={error} />}
             {!error && !articles.length && (
-             <>
+                
+                <>
                 <Categories 
                     categories={categories}
                     changeCategory={changeCategory}
@@ -27,5 +30,6 @@ export const Dashboard = ({articles, error, categories, changeCategory}) => {
              </>
             )}
         </section> 
+        </>
     );
 }
