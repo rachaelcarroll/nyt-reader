@@ -10,7 +10,7 @@
       align-items: center;
       justify-content: space-evenly;
     } @else if $alignment == between {
-      align-items: center;
+      align-items: start;
       justify-content: space-between;
     } @else if $alignment == around {
       align-items: center;
