@@ -21,9 +21,15 @@ export const ArticleContainer = ({articles, isLoading}) => {
         )
     })
 
-    return (
+    if(isLoading) {
+        return (
+          <h1 className='loading'>your news is loading...</h1>
+        )
+      } else {
+        return (
         <section className='all-articles'>
             {article} 
         </section>
     );
+  }
 }

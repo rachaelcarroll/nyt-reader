@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Dashboard } from './Dashboard';
 import { Route, Switch } from 'react-router-dom';
 import { ArticleDetails } from './ArticleDetails';
+import { Error } from './Error';
 
 const App = () => {
   const [ articles, setArticles ] = useState([])
@@ -34,13 +35,6 @@ const App = () => {
     getArticles(type);
   }, [])
 
-  if(isLoading) {
-    return (
-      <h1 className='loading'>your news is loading...</h1>
-    )
-  }
-
-  if (articles.length) {
     return (
       <main>
       <Switch>
@@ -68,9 +62,14 @@ const App = () => {
                   datePublished={articleMatch.published_date}
                   />
         }}/>
+        <Route render={() => (
+            <Error 
+            message={"Sorry, that page doesn't exist"} 
+            />
+          )}
+        />
       </Switch>
       </main>
     )}
-}
 
 export default App;
