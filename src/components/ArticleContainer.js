@@ -13,7 +13,7 @@ export const ArticleContainer = ({articles, isLoading}) => {
             key={articleObj.num}
             title={articleObj.title}
             media={articleObj.multimedia}
-            description={articleObj.description}
+            description={articleObj.abstract}
             link={articleObj.url}
             author={articleObj.byline}
             datePublished={articleObj.published_date}
@@ -28,6 +28,7 @@ export const ArticleContainer = ({articles, isLoading}) => {
       } else {
         return (
         <section className='all-articles'>
+            <h1>the daily news</h1>
             {article} 
         </section>
     );

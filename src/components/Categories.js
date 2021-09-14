@@ -10,7 +10,7 @@ export const Categories = ({getArticles}) => {
     const eachCategory = newsCategories.map((category, i) => {
         console.log("?????", category)
         return (
-            <div className={`category-tab${i}`} key={i} onClick={() => setCategory({category})}>
+            <div className='category-tab' key={i} onClick={() => setCategory({category})}>
                 {category}
             </div>
         )});
