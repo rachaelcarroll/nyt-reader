@@ -1,0 +1,17 @@
+.article-preview {
+    @include flex(row, between);
+    margin: 1rem;
+    padding: .5rem;
+    width: 80%;
+    border-bottom: 1px solid $black;
+
+    img {
+        height: 7rem;
+        width: 7rem;
+    }
+}
+
+.article-description {
+    @include flex(column, start);
+    padding: .5rem;
+}
