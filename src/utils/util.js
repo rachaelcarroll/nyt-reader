@@ -5,3 +5,28 @@ export const formatDate = (time) => {
     date = b[1] + '-' + b[2] + '-' + b[0];
     return date
   }
+
+  export const categories = [
+    'arts',
+    'automobiles',
+    'books',
+    'business',
+    'fashion',
+    'food',
+    'health',
+    'home',
+    'insider',
+    'magazine',
+    'movies',
+    'obituaries',
+    'opinion',
+    'politics',
+    'science',
+    'sports',
+    'technology',
+    'theater',
+    'travel',
+    'upshot',
+    'us',
+    'world'
+  ];
