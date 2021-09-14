@@ -56,7 +56,7 @@ const App = () => {
                   key={articleMatch.num}
                   title={articleMatch.title}
                   media={articleMatch.multimedia}
-                  description={articleMatch.description}
+                  description={articleMatch.abstract}
                   link={articleMatch.url}
                   author={articleMatch.byline}
                   datePublished={articleMatch.published_date}
