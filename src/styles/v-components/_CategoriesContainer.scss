@@ -1,0 +1,19 @@
+.all-categories {
+    width: 30%;
+    height: 100%;
+    margin: 2.4rem 0rem .5rem 0rem;
+}
+
+.category-tab {
+    padding: 1rem;
+    background: #6ba9a8;
+    border-radius: 0.2rem;
+    color: white;
+    margin: 1.5rem 0rem;
+        &:hover {
+            color: $black;
+            background: $white;
+            border: 1px solid $color-light;
+            cursor: pointer;
+        }
+}

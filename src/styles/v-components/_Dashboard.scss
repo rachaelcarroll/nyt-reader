@@ -1,0 +1,4 @@
+.dashboard {
+    @include flex(row, between);
+    width: 100%;
+}
