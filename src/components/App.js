@@ -1,7 +1,7 @@
 import { fetchArticles } from '../utils/apiCalls';
 import { useEffect, useState } from 'react';
 import { Dashboard } from './Dashboard';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { ArticleDetails } from './ArticleDetails';
 import { Error } from './Error';
 import { categories } from '../utils/util'
@@ -10,13 +10,6 @@ const App = () => {
   const [ articles, setArticles ] = useState([]);
   const [ type, setType ] = useState('home');
   const [ error, setError ] = useState('');
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    if (pathname === '/') {
-      setType('home');
-    }
-  }, [pathname]);
 
   useEffect(() => {
   
@@ -28,7 +21,6 @@ const App = () => {
           return {...article, id: `${identifier}`}
         })
         setArticles(articlesWithIds)
-        console.log('ARTICLES RENDER', articlesWithIds)
       } catch (error) {
         setError(error.message)
       }
@@ -67,9 +59,7 @@ const App = () => {
           }}/>
 
         <Route exact path='/:category/:id' render={({ match }) => {
-          console.log('match', match)
           let articleMatch = articles.find(article => article.id === match.params.id)
-          console.log("MATCH?", articleMatch)
           return <ArticleDetails 
                   id={articleMatch.id}
                   key={articleMatch.id}
