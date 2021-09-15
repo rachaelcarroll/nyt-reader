@@ -12,7 +12,6 @@ const App = () => {
   const [ error, setError ] = useState('');
 
   useEffect(() => {
-  
     const getArticles = async (type) => {
         try {
         let articles = await fetchArticles(type)
