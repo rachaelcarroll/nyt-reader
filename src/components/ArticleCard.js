@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { formatDate } from '../utils/util';
+import { IoChevronForwardCircle } from 'react-icons/io5';
 
 
 export const ArticleCard = ({section, id, title, media, description, author, datePublished}) => {
@@ -15,15 +16,15 @@ export const ArticleCard = ({section, id, title, media, description, author, dat
             <div className='article-description'>
                 <div className='title-tagline'>
                     <h2>{title}</h2>
-                    <p className='preview'>{description}</p>
                 </div>
             <div className='date-author'>
-                <p>Published {formatDate(datePublished)}</p>
                 <p>{author}</p>
             </div>
             </div>
             <NavLink to={`/${section}/${id}`}>
-                <button className='view-details'>View Details</button>
+                <button className='view-details'>
+                    <IoChevronForwardCircle />
+                </button>
             </NavLink>
         </article>
     );
