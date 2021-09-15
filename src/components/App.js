@@ -1,7 +1,7 @@
 import { fetchArticles } from '../utils/apiCalls';
 import { useEffect, useState } from 'react';
 import { Dashboard } from './Dashboard';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { ArticleDetails } from './ArticleDetails';
 import { Error } from './Error';
 import { categories } from '../utils/util'

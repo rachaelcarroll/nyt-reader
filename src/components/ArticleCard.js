@@ -1,9 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import { formatDate } from '../utils/util';
 import { IoChevronForwardCircle } from 'react-icons/io5';
 
 
-export const ArticleCard = ({section, id, title, media, description, author, datePublished}) => {
+export const ArticleCard = ({section, id, title, media, author}) => {
     console.log("section", section)
 
     return (
