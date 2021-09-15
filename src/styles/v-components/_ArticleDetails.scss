@@ -2,14 +2,44 @@
 .article-details {
     height: 100vh;
     width: 100vw;
-    background-repeat: no-repeat;
     background-size: cover;
     margin-top: 1rem;
 }
 
 .title-tag {
+    @include flex(column, start);
     background: $white;
     margin: 1rem;
+    padding: 1rem;
     width: 60%;
+    min-width: 30rem;
     place-self: center;
+
+    p, h1, a {
+        padding: .4rem;
+    }
+
+    button {
+        font-family: $font-family-secondary;
+        background: $color-dark;
+        color: $white;
+        border-radius: .5rem;
+        width: 6rem;
+        height: 2rem;
+        &:hover {
+            transform: scale(1.04)
+        }
+    }
+}
+
+.return-home {
+    font-size: 2rem;
+    margin: .5rem;
+    svg {
+        color: $black;
+        &:hover{
+            color: $color-dark;
+            transform: scale(1.05)
+        }
+    }
 }

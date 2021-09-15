@@ -23,3 +23,82 @@
       justify-content: flex-end;
     }
   }
+
+  /* === Media Queries === */
+  @mixin mobile($property) {
+    @media only screen and (min-width: 350px) {
+      @content;
+      transition: 100ms;
+        @if $property==categories {
+          display: none;
+          transition: 200ms;
+      } 
+      @if $property == dashboard {
+        @include flex(column, center);
+      } 
+      @if $property == article-card {
+        @include flex(column, center);
+      } 
+       
+      p {
+        font-size: .8rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  @mixin tablet($property) { 
+    @media only screen and (min-width: 768px) {
+      @content;
+      transition: 100ms;
+      @if $property== categories {
+        @include flex(column, start);
+        transition: 200ms;
+      } 
+      @if $property == dashboard {
+        @include flex(row, between);
+      } 
+      @if $property == article-card {
+        @include flex(row, between);
+        width: 70%;
+      } 
+
+      p {
+        font-size: 1rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+    }
+  }
+
+  @mixin desktop($property) {
+    @media only screen and (min-width: 1000px) {
+      @content;
+      transition: 100ms;
+      @if $property == categories {
+        @include flex(column, start);
+        transition: 200ms;
+      } 
+      @if $property == dashboard {
+        @include flex(row, between);
+      } 
+      @if $property == article-card {
+        @include flex(row, between);
+      } 
+
+    }
+  }
+
+/* === Helpers === */
+
+  @mixin mediaQueries($property) {
+    @include mobile($property);
+    @include tablet($property);
+    @include desktop($property);
+  }

@@ -1,5 +1,6 @@
 .all-categories {
     @include flex(column, start);
+    @include mediaQueries(categories);
     width: 30%;
     height: 100%;
     margin: 1rem 0rem .5rem 0rem;

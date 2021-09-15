@@ -1,8 +1,10 @@
 .article-preview {
     @include flex(row, between);
+    @include mediaQueries(article-card);
     margin: 0rem 1rem 1rem;
     padding: .5rem;
     width: 80%;
+    min-width: 10rem;
     border-bottom: 1px solid $black;
 
     h2 {
@@ -27,4 +29,15 @@
 
 .preview {
     font-size: .9rem;
+}
+
+.view-details {
+    font-size: 2rem;
+    svg {
+        color: $black;
+        &:hover{
+            color: $color-dark;
+            transform: scale(1.05)
+        }
+    }
 }
