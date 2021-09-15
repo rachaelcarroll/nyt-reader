@@ -39,6 +39,10 @@
       @if $property == article-card {
         @include flex(column, center);
       } 
+      @if $property == dropdown {
+        display: block;
+        width: 50%;
+      }
        
       p {
         font-size: .8rem;
@@ -65,6 +69,9 @@
         @include flex(row, between);
         width: 70%;
       } 
+      @if $property == dropdown {
+        display: none;
+      }
 
       p {
         font-size: 1rem;
@@ -90,6 +97,9 @@
       } 
       @if $property == article-card {
         @include flex(row, between);
+      } 
+      @if $property == dropdown {
+        display: none;
       } 
 
     }

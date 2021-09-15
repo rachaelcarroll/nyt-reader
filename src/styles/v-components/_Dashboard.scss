@@ -11,3 +11,13 @@
     border: 1px solid $black;
     padding: 1rem;
   }
+
+.nav-bar {
+    @include flex(column, between);
+    width: 100%;
+}
+
+.mobile-categories {
+    @include mediaQueries(dropdown);
+    place-self: center;
+}
