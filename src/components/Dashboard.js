@@ -1,11 +1,18 @@
 import { Categories } from './Categories';
 import { ArticleContainer } from './ArticleContainer';
 import { Error } from './Error';
+import { MobileCategories } from './MobileCategories';
 
 export const Dashboard = ({articles, error, categories, changeCategory}) => {
     return (
         <>
-        <h1 className='the-daily-header'>the daily news</h1>
+        <nav className='nav-bar'>
+            <h1 className='the-daily-header'>the daily news</h1>
+            <MobileCategories 
+                categories={categories}
+                changeCategory={changeCategory}
+            />
+        </nav>
         <section className='dashboard'>
             {error && <Error message={error} />}
             {!error && !articles.length && (
