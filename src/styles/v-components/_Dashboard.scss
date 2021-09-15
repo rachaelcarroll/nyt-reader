@@ -21,3 +21,8 @@
     @include mediaQueries(dropdown);
     place-self: center;
 }
+
+.loading {
+    place-self: center;
+    margin-right: 10rem;
+}

@@ -21,7 +21,9 @@ export const Dashboard = ({articles, error, categories, changeCategory}) => {
                     categories={categories}
                     changeCategory={changeCategory}
                 />
-                <h1 className='loading'>loading your news...</h1>
+                <section className='all-articles'>
+                    <h1 className='loading'>loading your news...</h1>
+                </section>
                 </>
             )}
             {!error && !!articles.length && (
