@@ -25,12 +25,9 @@ To view this application on your local machine:
 Open a window in your web browser of choice, and visit `localhost:3000` to view the app!
 
 ## Functionality 
-
-![Demo of dashboard view and changing categories](https://user-images.githubusercontent.com/76228573/133680633-eae0feb2-64d0-4609-9915-dfb08e635ad9.gif) 
-
-![Demo Full Article View](https://user-images.githubusercontent.com/76228573/133680898-c5bfd03a-74aa-4163-b518-4f8879b62a43.gif)
-
-![Demo of Responsiveness](https://user-images.githubusercontent.com/76228573/133681322-de21fcbc-ae5e-41c8-b3ed-b6a82de86564.gif)
+- Site is responsive and will change layouts across desktop, tablet, and phone screens<br>
+ <img src="https://user-images.githubusercontent.com/76228573/133684004-88ade0f8-a044-4552-934d-70aef3519e08.gif" alt="desktop view" width="500" height="auto"/> <br>  <img src="https://user-images.githubusercontent.com/76228573/133682171-61e47624-e23d-4c3a-98a7-45ae42f2030e.gif" alt="tablet view" width="200" height="250"/>   <img src="https://user-images.githubusercontent.com/76228573/133681322-de21fcbc-ae5e-41c8-b3ed-b6a82de86564.gif" alt="mobile view"
+width="100" height="200"/> 
 
 ## Future Additions
 
