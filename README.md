@@ -10,7 +10,7 @@
 
 ## Overview
 
-The daily news is a news reader application built in 8 hours for a front end take home challenge.  Utilizing data from the [NYTimes top stories API](https://developer.nytimes.com/docs/top-stories-product/1/overview), users can view article headlines and photos and select from a list of news categories. They may also click on an article card to view more details about the story. The app is responsive across desktop, tablet, and mobile screen sizes.  On mobile, a dropdown menu allows the user to choose and search categories. 
+The daily news is a news reader application built in 8 hours for a front end project.  Utilizing data from the [NYTimes top stories API](https://developer.nytimes.com/docs/top-stories-product/1/overview), users can view article headlines and photos and select from a list of news categories. They may also click on an article card to view more details about the story. The app is responsive across desktop, tablet, and mobile screen sizes.  On mobile, a dropdown menu allows the user to choose and search categories. 
 
 View the [wireframe](https://miro.com/app/board/o9J_lxNy2LM=/) and [deployed app](https://the-daily-take-home.netlify.app/). 
 
