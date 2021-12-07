@@ -1,7 +1,7 @@
 import { fetchArticles } from '../utils/apiCalls';
 import { useEffect, useState } from 'react';
 import { Dashboard } from './Dashboard';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { ArticleDetails } from './ArticleDetails';
 import { Error } from './Error';
 import { categories } from '../utils/util'
@@ -10,22 +10,27 @@ const App = () => {
   const [ articles, setArticles ] = useState([]);
   const [ type, setType ] = useState('home');
   const [ error, setError ] = useState('');
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (pathname === '/') {
+      setType('home');
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const getArticles = async (type) => {
         try {
-        let articles = await fetchArticles(type)
-        const articlesWithIds = articles.results.map((article, i) => {
-          let identifier = i
-          return {...article, id: `${identifier}`}
-        })
-        setArticles(articlesWithIds)
+        let data = await fetchArticles(type);
+        setArticles(data);
       } catch (error) {
-        setError(error.message)
+        setError(error.message);
       }
     }
     getArticles(type);
   }, [type])
+
+  console.log(articles)
 
   const changeCategory = (category) => {
     setType(category);
@@ -60,14 +65,15 @@ const App = () => {
         <Route exact path='/:category/:id' render={({ match }) => {
           let articleMatch = articles.find(article => article.id === match.params.id)
           return <ArticleDetails 
-                  id={articleMatch.id}
-                  key={articleMatch.id}
-                  title={articleMatch.title}
-                  media={articleMatch.multimedia}
-                  description={articleMatch.abstract}
-                  link={articleMatch.url}
-                  author={articleMatch.byline}
-                  datePublished={articleMatch.published_date}
+                article = {articleMatch}
+                  // id={articleMatch.id}
+                  // key={articleMatch.id}
+                  // title={articleMatch.title}
+                  // media={articleMatch.multimedia}
+                  // description={articleMatch.abstract}
+                  // link={articleMatch.url}
+                  // author={articleMatch.byline}
+                  // datePublished={articleMatch.published_date}
                   />
         }}/>
         <Route render={() => (
