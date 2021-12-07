@@ -3,7 +3,6 @@ import { IoChevronForwardCircle } from 'react-icons/io5';
 
 
 export const ArticleCard = ({section, id, title, image, author}) => {
-    console.log("section", section)
 
     return (
         <article className='article-preview'>

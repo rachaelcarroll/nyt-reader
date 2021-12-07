@@ -30,8 +30,6 @@ const App = () => {
     getArticles(type);
   }, [type])
 
-  console.log(articles)
-
   const changeCategory = (category) => {
     setType(category);
   };
@@ -66,14 +64,6 @@ const App = () => {
           let articleMatch = articles.find(article => article.id === match.params.id)
           return <ArticleDetails 
                 article = {articleMatch}
-                  // id={articleMatch.id}
-                  // key={articleMatch.id}
-                  // title={articleMatch.title}
-                  // media={articleMatch.multimedia}
-                  // description={articleMatch.abstract}
-                  // link={articleMatch.url}
-                  // author={articleMatch.byline}
-                  // datePublished={articleMatch.published_date}
                   />
         }}/>
         <Route render={() => (

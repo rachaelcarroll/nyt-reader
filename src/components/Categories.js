@@ -6,11 +6,11 @@ export const Categories = ({categories, changeCategory}) => {
     const eachCategory = categories.map(category => {
         return (
             <NavLink to={`/${category}`}
-                    className={`category-tab ${location === `/${category}`} && 'active'`} 
-                    key={category} 
-                    id={category}
-                    onClick={(event) => changeCategory(event.target.id)}>
-                    {category}
+                className={`category-tab ${location === `/${category}`} && 'active'`} 
+                key={category} 
+                id={category}
+                onClick={(event) => changeCategory(event.target.id)}>
+                {category}
             </NavLink>
         )});
 

@@ -4,7 +4,6 @@ export const ArticleContainer = ({articles}) => {
     const allArticles = [...articles]
 
     const articleCard = allArticles.map(article => {
-        console.log("ARTICLE?", article)
         return (
             <ArticleCard
             id={article.id}

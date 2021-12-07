@@ -4,7 +4,6 @@ import { IoChevronBackCircle } from 'react-icons/io5';
 
 
 export const ArticleDetails = ({article}) => {
-
     return (
         <section className='article-details-container'>
             <NavLink to='/'>
@@ -26,7 +25,5 @@ export const ArticleDetails = ({article}) => {
                 </div>
             </article>
         </section>
-
-
     )
 }
