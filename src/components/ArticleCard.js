@@ -2,14 +2,14 @@ import { NavLink } from 'react-router-dom';
 import { IoChevronForwardCircle } from 'react-icons/io5';
 
 
-export const ArticleCard = ({section, id, title, media, author}) => {
+export const ArticleCard = ({section, id, title, image, author}) => {
     console.log("section", section)
 
     return (
         <article className='article-preview'>
-            {media && (
+            {image && (
                 <div className='article-img'>
-                    <img src={media[0].url} alt={title}/>
+                    <img src={image} alt={title}/>
                 </div>
             )}
             <div className='article-description'>
