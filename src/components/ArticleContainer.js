@@ -8,7 +8,7 @@ export const ArticleContainer = ({articles}) => {
     const articleCard = allArticles.filter(article => {
         if(search === '') {
             return article;
-        } else if (article.abstract.toLowerCase().includes(search.toLowerCase()) || article.title.toLowerCase().includes(search.toLowerCase())) {
+        } else if (article.title.toLowerCase().includes(search.toLowerCase())) {
             return article;
         }
     }).map(article => {
