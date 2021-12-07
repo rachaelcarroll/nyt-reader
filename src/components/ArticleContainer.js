@@ -10,11 +10,11 @@ export const ArticleContainer = ({articles}) => {
             id={article.id}
             key={article.id}
             title={article.title}
-            media={article.multimedia}
+            image={article.image}
             description={article.abstract}
             link={article.url}
             author={article.byline}
-            datePublished={article.published_date}
+            datePublished={article.datePublished}
             section={article.section}
             />
         )
