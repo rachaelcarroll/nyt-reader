@@ -3,7 +3,7 @@ import { formatDate } from '../utils/util';
 import { IoChevronBackCircle } from 'react-icons/io5';
 
 
-export const ArticleDetails = ({id, title, media, description, link, author, datePublished}) => {
+export const ArticleDetails = ({article}) => {
 
     return (
         <section className='article-details-container'>
@@ -14,13 +14,13 @@ export const ArticleDetails = ({id, title, media, description, link, author, dat
                     </button>
                 </div>
             </NavLink>
-            <article className='article-details' style={{ background: `url(${media[0].url})`}}>
+            <article className='article-details' style={{ background: `url(${article.image})`}}>
                 <div className='title-tag'>
-                    <h1>{title}</h1>
-                    <p>{author}</p>
-                    <p>{description}</p>
-                    <p>Published on: {formatDate(datePublished)}</p>
-                <a target="_blank" href={link}>
+                    <h1>{article.title}</h1>
+                    <p>{article.byLine}</p>
+                    <p>{article.abstract}</p>
+                    <p>Published on: {formatDate(article.datePublished)}</p>
+                <a target="_blank" href={article.url}>
                     <button className='read-more'>read more</button>
                 </a>            
                 </div>
