@@ -9,6 +9,7 @@ export const MobileCategories = ({categories, changeCategory}) => {
             className='mobile-categories'
             options={options}
             onChange={(event) => changeCategory(event.value)}
+            placeholder='Search by category...'
         />
     )
 }
